@@ -1,5 +1,9 @@
-FROM python:3.10
-WORKDIR /app
+FROM python:3.11-slim
+
+WORKDIR /workspace
+
 COPY . .
-RUN chmod +x start.sh
-CMD ["bash", "start.sh"]
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+CMD ["python3", "main.py"]
